@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function CanSubmit() {
+            var pwd = document.forms[0].txtPassword.value;
+            var cpwd = document.forms[0].txtConfirmPassword.value;
+
+            if (pwd == cpwd) return true;
+            else {
+                alert("plz same");
+                return false;
+            }
+        }
+
+        //function CanDelete() {
+        //    return confirm("Are you sure?");
+        //}
+
+        function ValidateMathForm() {
+            var n1 = document.forms[1].txtN1.value;
+            var n2 = document.forms[1].txtN2.value;
+
+            if (n1 == "" || n2 == "" || isNaN(n1) || isNaN(n2)) {
+                alert("Plz ensure that data is entered in both textboxes");
+                return false;
+            }
+            else return true;
+        }
+
+        function CheckDenominator() {
+            var n2 = document.forms[1].txtN2.value;
+            if (n2 == 0) {
+                alert("Denominator cannot be zero");
+                return false;
+            } else return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="/" method="post" onsubmit="return CanSubmit()"> <!-- true나 false return 안해주면, 원하지 않는 동작(예를 들어 제출되면 안되는데 제출이 돼버림) 할 수도 있어서, 단순히 함수 call만이 아니라 return 해줘야 함-->
+        Password: <input type="password" name="txtPassword" value="" /><br />
+        Confirm Password: <input type="password" name="txtConfirmPassword" value="" /><br />
+        <input type="submit" name="txtSubmit" value="Submit" />
+        <hr />
+        <input type="submit" name="btnDelete" value="Delete" onclick="return confirm('Are you sure?')/*CanDelete()*/" />
+    </form>
+    <hr />
+    <form action="/" method="post" onsubmit="return ValidateMathForm()"> <!-- 공통validation은 form 레벨에서 설정-->
+        N1 <input type="text" name="txtN1" value="" /><br />
+        N2 <input type="text" name="txtN2" value="" /><br />
+        <input type="submit" name="btnAdd" value=" + " />
+        <input type="submit" name="btnSub" value=" - " />
+        <input type="submit" name="btnMul" value=" * " />
+        <input type="submit" name="btnDiv" value=" / " onclick="return CheckDenominator()"/> <!-- 버튼 하나에 대한 validation은 각 원소에서 해줘도 됨 -->
+    </form>
+</body>
+</html>

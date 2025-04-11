@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function ChangeDisplay() {
+            if (document.forms[0].display[0].checked) document.getElementById("spn1").style.display = "";
+            else document.getElementById("spn1").style.display = "none";
+
+            if (document.forms[0].chkBold.checked) document.getElementById("spn1").style.fontWeight = "bold";
+            else document.getElementById("spn1").style.fontWeight = "";
+        }
+        function ChangeText(ta) {
+            document.getElementById("spn1").innerText= ta.value;
+        }
+    </script>
+</head>
+<body>
+    <form action="/" method="post">
+        <input type="radio" name="display" value="Show" checked="checked" onclick="ChangeDisplay()" /> Show
+        <input type="radio" name="display" value="Hide" onclick="ChangeDisplay()" /> Hide
+        <br />
+        <input id="chkBold" type="checkbox" name="chkBold" value="b" onclick="ChangeDisplay()" /> <label for="chkBold">Bold</label>
+        <br />
+        <textarea name="ta1" onkeyup="ChangeText(this)"></textarea>
+        <br />
+        <span id="spn1"> This is demo text</span>
+    </form>
+</body>
+</html>

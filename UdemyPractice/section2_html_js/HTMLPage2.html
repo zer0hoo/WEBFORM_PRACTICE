@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function SayHello() {
+            //var name = document.forms[0].elements[0].value
+            //var name = document.forms["form1"].elements["txtName"].value
+            var name = document.form1.txtName.value;
+            alert("Hello " + name);
+        }
+
+        function CopyTextFromT1ToT2() {
+            var v1 = document.form1.t1.value;
+            if (document.form1.rbnCase[0].checked)
+                document.form1.t2.value = v1.toUpperCase();
+            else 
+                document.form1.t2.value = v1.toLowerCase();
+        }
+
+        function Calculate() {
+            var n1 = document.form1.txtN2.value;
+            var n2 = document.form1.txtN3.value;
+            var selInd = document.form1.ddlOperation.selectedIndex
+            var selOp = document.form1.ddlOperation.options[selInd]
+
+            switch (selOp.value) {
+                case "+":
+                    document.form1.txtResult.value = parseInt(n1) + parseInt(n2); // .value로 얻어온 원소는 기본적으로 string임
+                    break;
+                case "-":
+                    document.form1.txtResult.value = n1 - n2;
+                    break;
+                case "*":
+                    document.form1.txtResult.value = n1 * n2;
+                    break;
+                case "/":
+                    document.form1.txtResult.value = n1 / n2;
+                    break;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form name="form1" action="">
+        Name : <input type="text" name="txtName" value="" />
+        <br />
+        <input type="button" name="btnSayHello" value="Say Hello" onclick='SayHello()' />
+        <hr />
+        <input type="text" name="t1" value="" onkeyup="CopyTextFromT1ToT2()" />
+        <input type="radio" name="rbnCase" value="u" checked="checked" onclick="CopyTextFromT1ToT2()"/> To Upper
+        <input type="radio" name="rbnCase" value="l" onclick="CopyTextFromT1ToT2()"/> To Lower
+
+        <input type="text" name="t2" value="" />
+        <hr />
+        <input type="text" name="txtN2" value="10" />
+        <input type="text" name="txtN3" value="2" />
+        <select name="ddlOperation" onchange="Calculate()">
+            <option value="+">Add</option>
+            <option value="-">Sub</option>
+            <option value="*">Mul</option>
+            <option value="/">Div</option>
+        </select>
+        <input type="text" name="txtResult" value="12" readonly="readonly" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function SwitchOn() {
+            document.images[0].src = "r.png";
+        }
+        function SwitchOff() {
+            document.images[0].src = "k.png";
+        }
+        function Switch(state) {
+            var img = document.getElementById("img1");
+            if (state == 1) {
+                img.src = "r.png";
+            } else img.src = "k.png";
+        }
+        function Switch1(state, img) { // img라는 게 페이지 안에 되게 많을테니 이런 식으로 this 파라미터로 받아 사용하는 게 바람직하다고 함.(js는 기본적으로 함수에 대한 verloading은 없다고 함. 상속받은 건 가능한 듯)
+            if (state == 1) {
+                img.src = "r.png";
+            } else img.src = "k.png";
+        }
+    </script>
+</head>
+<body>
+    <img src="k.png" width="200" height="300" alt="kr" 
+         onmouseover="SwitchOn()" onmouseout="SwitchOff()" />
+    <img id="img1" src="k.png" width="200" height="300" alt="kr" 
+         onmouseover="Switch(1)" onmouseout="Switch(0)" />
+    <img src="k.png" width="200" height="300" alt="kr" 
+         onmouseover="Switch1(1, this)" onmouseout="Switch1(0, this)" /> <!-- this means reference to the current object -->
+</body>
+</html>
