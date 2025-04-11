@@ -13,11 +13,11 @@
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ShowMessageBox="True" ShowSummary="False" />
             <asp:Label ID="Label1" runat="server" Text="First Name: "></asp:Label>
             <asp:TextBox ID="txtFirstNAme" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFirstNAme" ErrorMessage="Plz provide first name">Required</asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFirstNAme" ErrorMessage="Plz provide first name" SetFocusOnError="True" ToolTip="Plz provide first name">Required</asp:RequiredFieldValidator>
             <br />
             <asp:Label ID="Label2" runat="server" Text="Last Name: "></asp:Label>
             <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLastName" ErrorMessage="Plz provide last name">Required</asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLastName" ErrorMessage="Plz provide last name" SetFocusOnError="True">Required</asp:RequiredFieldValidator>
             <br />
             <br />
             Education:
@@ -37,8 +37,23 @@
             <br />
             Confirm Password:
             <asp:TextBox ID="txtConfirmpassword" runat="server"></asp:TextBox>
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmpassword" Display="Dynamic" ErrorMessage="Plz ensure that the value in password and confirm password are same">Invalid</asp:CompareValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmpassword" Display="Dynamic" ErrorMessage="Plz ensure that the value in password and confirm password are same" SetFocusOnError="True">Invalid</asp:CompareValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtConfirmpassword" ErrorMessage="Plz provide confirm password" SetFocusOnError="True" Display="Dynamic">Required</asp:RequiredFieldValidator>
+            <br />
+            <br />
+            Age:
+            <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtAge" ErrorMessage="Age cannot be less than 18" Operator="GreaterThan" Type="Integer" ValueToCompare="18"></asp:CompareValidator>
+            <br />
+            <br />
+            Annual Earnings:
+            <asp:TextBox ID="txtAnnualEarnings" runat="server"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtAnnualEarnings" ErrorMessage="Plz enter vbalid Annual Earnings" Operator="DataTypeCheck" Type="Currency">Invalid value</asp:CompareValidator>
+            <br />
+            <br />
+            Date of Graduation:
+            <asp:TextBox ID="txtGraduationDate" runat="server"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToCompare="txtGraduationDate" ErrorMessage="Invalid Date of Graduation" Operator="DataTypeCheck" SetFocusOnError="True" Type="Date"></asp:CompareValidator>
             <br />
             <br />
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
