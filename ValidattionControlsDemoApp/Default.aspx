@@ -51,14 +51,19 @@
             <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtRange" ErrorMessage="Age cannot be less thaan 18 and more than 50" MaximumValue="50" MinimumValue="18" Type="Integer">Age cannot be less thaan 18 and more than 50</asp:RangeValidator>
             <br />
             <br />
-            Annual Earnings: <asp:TextBox ID="txtAnnualEarnings" runat="server"></asp:TextBox>
+            Annual Earnings:
+            <asp:TextBox ID="txtAnnualEarnings" runat="server"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtAnnualEarnings" ErrorMessage="Plz enter vbalid Annual Earnings" Operator="DataTypeCheck" Type="Currency">Invalid value</asp:CompareValidator>
             <br />
             <br />
-            Date of GraduDate of Graduation:
+            Date of Graduation:
             <asp:TextBox ID="txtGraduationDate" runat="server"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="txtAnnualEarnings" ErrorMessage="Invalid value for graduate" Operator="DataTypeCheck" Type="Currency">Invalid value for graduate</asp:CompareValidator>
             <br />
+            <br />
+            Email ID:
+            <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmailId" ErrorMessage="Plz enter valid email Id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Plz enter valid email Id</asp:RegularExpressionValidator>
             <br />
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
         </div>
