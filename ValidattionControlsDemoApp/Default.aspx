@@ -42,18 +42,22 @@
             <br />
             <br />
             Age:
-            <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtAge" runat="server" Height="19px"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtAge" ErrorMessage="Age cannot be less than 18" Operator="GreaterThan" Type="Integer" ValueToCompare="18"></asp:CompareValidator>
             <br />
             <br />
-            Annual Earnings:
-            <asp:TextBox ID="txtAnnualEarnings" runat="server"></asp:TextBox>
+            Range:
+            <asp:TextBox ID="txtRange" runat="server" Height="19px"></asp:TextBox>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtRange" ErrorMessage="Age cannot be less thaan 18 and more than 50" MaximumValue="50" MinimumValue="18" Type="Integer">Age cannot be less thaan 18 and more than 50</asp:RangeValidator>
+            <br />
+            <br />
+            Annual Earnings: <asp:TextBox ID="txtAnnualEarnings" runat="server"></asp:TextBox>
             <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="txtAnnualEarnings" ErrorMessage="Plz enter vbalid Annual Earnings" Operator="DataTypeCheck" Type="Currency">Invalid value</asp:CompareValidator>
             <br />
             <br />
-            Date of Graduation:
+            Date of GraduDate of Graduation:
             <asp:TextBox ID="txtGraduationDate" runat="server"></asp:TextBox>
-            <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToCompare="txtGraduationDate" ErrorMessage="Invalid Date of Graduation" Operator="DataTypeCheck" SetFocusOnError="True" Type="Date"></asp:CompareValidator>
+            <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToValidate="txtAnnualEarnings" ErrorMessage="Invalid value for graduate" Operator="DataTypeCheck" Type="Currency">Invalid value for graduate</asp:CompareValidator>
             <br />
             <br />
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
