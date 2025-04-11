@@ -14,9 +14,17 @@
             } else args.IsValid = true;
         }
     </script>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <table class="auto-style1">
+            <tr>
+                <td>
         <div aria-atomic="True" aria-multiline="False">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ShowMessageBox="True" ShowSummary="False" />
             <asp:Label ID="Label1" runat="server" Text="First Name: "></asp:Label>
@@ -76,10 +84,21 @@
             <br />
             Username:
             <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-            <asp:CustomValidator ID="cvUsername" runat="server" ClientValidationFunction="ValidateName" ControlToValidate="txtUsername" ErrorMessage="Name must b e between 9 and 10 chars">Invalid</asp:CustomValidator>
+            <asp:CustomValidator ID="cvUsername" runat="server" ClientValidationFunction="ValidateName" ControlToValidate="txtUsername" ErrorMessage="Name must b e between 9 and 10 chars" OnServerValidate="cvUsername_ServerValidate">Invalid</asp:CustomValidator>
             <br />
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+            <asp:Button ID="btnCancel" runat="server" CausesValidation="False" OnClick="btnCancel_Click" Text="Cancel" />
+            <br />
         </div>
-    </form>
+                </td>
+                <td style="vertical-align: top">
+                    <asp:TextBox ID="txtSearch" runat="server" ValidationGroup="searchgroup  "></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtSearch" ErrorMessage="{;az emter searcj string" ValidationGroup="searchgroup  ">*</asp:RequiredFieldValidator>
+                    <br />
+                    <asp:Button ID="Button1" runat="server" Text="Search" ValidationGroup="searchgroup  " />
+                </td>
+            </tr>
+        </table>
+    </form> 
 </body>
 </html>
