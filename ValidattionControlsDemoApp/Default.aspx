@@ -6,6 +6,13 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <script> // custom validator를 사용하려면, javascript에 function을 만들고 이 function을 validator의 속성에 넣어줘야 함
+        function ValidateName(src, args) { // src : reference to the textBox(tag), args : value of textBox(tag)
+            if (args.Value.length < 8 || args.Value.length > 15) {
+                args.IsValid = false;
+            } else args.IsValid = true;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -64,6 +71,11 @@
             Email ID:
             <asp:TextBox ID="txtEmailId" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmailId" ErrorMessage="Plz enter valid email Id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Plz enter valid email Id</asp:RegularExpressionValidator>
+            <br />
+            <br />
+            Username:
+            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+            <asp:CustomValidator ID="cvUsername" runat="server" ClientValidationFunction="ValidateName" ControlToValidate="txtUsername" ErrorMessage="Name must b e between 9 and 10 chars">Invalid</asp:CustomValidator>
             <br />
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
         </div>
