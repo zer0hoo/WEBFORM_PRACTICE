@@ -9,8 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+        <div aria-atomic="True">
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ShowMessageBox="True" ShowSummary="False" />
             <asp:Label ID="Label1" runat="server" Text="First Name: "></asp:Label>
             <asp:TextBox ID="txtFirstNAme" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFirstNAme" ErrorMessage="Plz provide first name">Required</asp:RequiredFieldValidator>
@@ -21,12 +21,13 @@
             <br />
             <br />
             Education:
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="ddlEducation" runat="server">
+                <asp:ListItem Value="-1">(Select One)</asp:ListItem>
                 <asp:ListItem Value="0">Under Graduate</asp:ListItem>
                 <asp:ListItem Value="1">Graduate</asp:ListItem>
                 <asp:ListItem Value="2">Post Graduate</asp:ListItem>
-                <asp:ListItem Value="-1">(Select One)</asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlEducation" ErrorMessage="Plz select education" InitialValue="-1" SetFocusOnError="True">Required</asp:RequiredFieldValidator>
             <br />
             <br />
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
