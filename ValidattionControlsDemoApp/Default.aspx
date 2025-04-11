@@ -9,6 +9,7 @@
     <script> // custom validator를 사용하려면, javascript에 function을 만들고 이 function을 validator의 속성에 넣어줘야 함
         function ValidateName(src, args) { // src : reference to the textBox(tag), args : value of textBox(tag)
             if (args.Value.length < 8 || args.Value.length > 15) {
+                src.errormessage = args.Value + " is invalid" // 동적으로 브라우저에 표출되는 에러 메시지 변경
                 args.IsValid = false;
             } else args.IsValid = true;
         }
