@@ -73,6 +73,7 @@
     <Content Include="Default2.aspx" />
     <Content Include="DefaultErrorPage.aspx" />
     <Content Include="FileNotFound.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="SubFolder\SubDefault.aspx" />
   </ItemGroup>
   <ItemGroup>
