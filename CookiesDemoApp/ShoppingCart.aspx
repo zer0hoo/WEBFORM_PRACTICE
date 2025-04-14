@@ -12,15 +12,15 @@
         <div>
             <img src="ProductImages/tv.jpeg" width="100" height="100" />
             <asp:Button ID="btnAddTVToCart" runat="server" Text="Add To Cart" OnClick="btnAddTVToCart_Click" />
-            <asp:Button ID="btnRemoveTV" runat="server" Text="RemoveFromCart" />
+            <asp:Button ID="btnRemoveTV" runat="server" Text="RemoveFromCart" OnClick="btnRemoveTV_Click" />
             <br />
             <img src="ProductImages/ref1.jpeg" width="100" height="100" />
             <asp:Button ID="btnAddRefToCart" runat="server" Text="Add To Cart" OnClick="btnAddRefToCart_Click" />
-            <asp:Button ID="btnRemoveRef" runat="server" Text="RemoveFromCart" />
+            <asp:Button ID="btnRemoveRef" runat="server" Text="RemoveFromCart" OnClick="btnRemoveRef_Click" />
             <br />
             <img src="ProductImages/airconditioner.jpeg" width="100" height="100" />
             <asp:Button ID="btnAddAirConditionerToCart" runat="server" Text="Add To Cart" OnClick="btnAddAirConditionerToCart_Click" />
-            <asp:Button ID="btnRemoveAirConditioner" runat="server" Text="RemoveFromCart" />
+            <asp:Button ID="btnRemoveAirConditioner" runat="server" Text="RemoveFromCart" OnClick="btnRemoveAirConditioner_Click" />
             <br />
             <br />
             <br />
