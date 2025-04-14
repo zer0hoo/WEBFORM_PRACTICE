@@ -11,7 +11,7 @@ namespace SessionsDemoApp
 {
 
 
-    public partial class WebForm1
+    public partial class Login
     {
 
         /// <summary>
@@ -24,30 +24,39 @@ namespace SessionsDemoApp
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblCounter 컨트롤입니다.
+        /// lblError 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCounter;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// lblLoginStatus 컨트롤입니다.
+        /// txtUsername 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoginStatus;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
-        /// lnkLogin 컨트롤입니다.
+        /// txtPassword 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// btnLogin 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
     }
 }

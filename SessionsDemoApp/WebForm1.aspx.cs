@@ -12,11 +12,35 @@ namespace SessionsDemoApp
         protected void Page_Load(object sender, EventArgs e)
         {
             int n = 0;
-            if (Session.IsNewSession)
-                n = (int) Session["cnt"];
+            if (!Session.IsNewSession)
+                n = (int)Session["cnt"];
             n++;
             Session["cnt"] = n;
             lblCounter.Text = n.ToString();
+
+            if (Session["username"] == null)
+            {
+                lblLoginStatus.Text = "Please login";
+                lnkLogin.Text = "Login";
+            }
+            else
+            {
+                lblLoginStatus.Text = "Welcome" + Session["username"].ToString();
+                lnkLogin.Text = "Logout";
+            }
+
+            string url = "http://" + Request.Url.Host + Response.ApplyAppPathModifier("/Login.aspx"); // session 사용에 있어 cookieless 옵션 썼다면 ApplyAppPathModifier를 써줘야 한다. 안써주면 session 관련 정보 uri에 안뜨는 걸 보기 위해 Response.Write로 테스트함
+            Response.Write(url);
+        }
+
+        protected void lnkLogin_Click(object sender, EventArgs e)
+        {
+            if (lnkLogin.Text == "Login") Response.Redirect("Login.aspx");
+            else
+            {
+                Session.Remove("username");
+                Response.Redirect(Request.Path);
+            }
         }
     }
 }
