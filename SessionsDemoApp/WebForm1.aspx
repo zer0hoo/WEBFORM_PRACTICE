@@ -12,6 +12,8 @@
         <div>
             Session Counter: <asp:Label ID="lblCounter" runat="server" Text="Label"></asp:Label>
             <br />
+            Application Counter: <asp:Label ID="lblApplicationCounter" runat="server" Text="Label"></asp:Label>
+            <br />
             <asp:Label ID="lblLoginStatus" runat="server" Text=""></asp:Label>
             <asp:LinkButton ID="lnkLogin" runat="server" OnClick="lnkLogin_Click">Login</asp:LinkButton>
         </div>

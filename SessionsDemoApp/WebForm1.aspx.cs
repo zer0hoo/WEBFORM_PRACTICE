@@ -18,6 +18,13 @@ namespace SessionsDemoApp
             Session["cnt"] = n;
             lblCounter.Text = n.ToString();
 
+            int m = 0;
+            if (Application["cnt"] != null)
+                m = (int)Application["cnt"];
+            m++;
+            Application["cnt"] = m;
+            lblApplicationCounter.Text = m.ToString();
+
             if (Session["username"] == null)
             {
                 lblLoginStatus.Text = "Please login";
