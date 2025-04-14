@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            Following is the result of searching <%= Request.QueryString["search"] %>
         </div>
     </form>
 </body>
