@@ -15,7 +15,10 @@
             <br />
             <a href="Page1.aspx">Page1.aspx</a><br />
             <br />
-            <a href="../Default.aspx">Default.aspx</a></div>
+            <a href="../Default.aspx">Default.aspx</a><br />
+            <br />
+            <asp:Button ID="btnOnlyForR2" runat="server" Text="Only For R2" />
+        </div>
     </form>
 </body>
 </html>

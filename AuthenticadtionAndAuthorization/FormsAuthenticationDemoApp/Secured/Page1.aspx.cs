@@ -11,7 +11,11 @@ namespace FormsAuthenticationDemoApp.Secured
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (User.IsInRole("r2")) btnOnlyForR2.Visible = true;
+                else btnOnlyForR2.Visible = false;
+            }
         }
     }
 }
