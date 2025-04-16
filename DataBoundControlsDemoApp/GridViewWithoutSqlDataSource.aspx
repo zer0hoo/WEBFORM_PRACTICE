@@ -30,14 +30,14 @@
                     <asp:Parameter Name="EmpId" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <asp:GridView ID="gvEmp" runat="server" DataKeyNames="EmpId" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="true" OnSorting="gvEmp_Sorting">
+            <asp:GridView ID="gvEmp" runat="server" DataKeyNames="EmpId" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="true" OnSorting="gvEmp_Sorting" OnRowCancelingEdit="gvEmp_RowCancelingEdit" OnRowEditing="gvEmp_RowEditing" OnRowUpdating="gvEmp_RowUpdating">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="EmpId" HeaderText="emp Id" ReadOnly="true" SortExpression="EmpId" /> <%-- label로 랜더링 됨 --%>
                     <asp:BoundField DataField="EmpName" HeaderText="emp name" ReadOnly="true" SortExpression="EmpName" />
                     <asp:BoundField DataField="EmpSalary" HeaderText="emp salary" ReadOnly="true" SortExpression="EmpSalary" />
                     <asp:CheckBoxField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
-                    <asp:CommandField ShowSelectButton="true" />
+                    <asp:CommandField ShowSelectButton="true" ShowDeleteButton="true" ShowEditButton="true" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

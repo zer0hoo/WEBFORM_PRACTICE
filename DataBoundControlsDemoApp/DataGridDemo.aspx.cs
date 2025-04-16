@@ -23,5 +23,21 @@ namespace DataBoundControlsDemoApp
             Response.Write(gvr.Cells[3].Text);
             CheckBox chk = (CheckBox) gvr.Cells[3].Controls[0];
         }
+
+        protected void gvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "email")
+            {
+                int ind = Convert.ToInt32(e.CommandArgument);
+                int empId = Convert.ToInt32(gvEmp.DataKeys[ind].Value);
+                Response.Write("Email sent to emp with id=" + empId);
+            }
+            else if (e.CommandName == "sms")
+            {
+                int ind = Convert.ToInt32(e.CommandArgument);
+                int empId = Convert.ToInt32(gvEmp.DataKeys[ind].Value);
+                Response.Write("SMS sent to emp with id=" + empId);
+            }
+        }
     }
 }
