@@ -39,5 +39,34 @@ namespace DataBoundControlsDemoApp
                 Response.Write("SMS sent to emp with id=" + empId);
             }
         }
+
+        protected void dvEmp_ModeChanged(object sender, EventArgs e)
+        {
+            if (dvEmp.CurrentMode == DetailsViewMode.ReadOnly) gvEmp.Enabled = true;
+            else gvEmp.Enabled = false;
+        }
+
+        protected void dvEmp_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                string msg = e.Exception.Message;
+                Response.Write(msg);
+                e.ExceptionHandled = true;
+                e.KeepInEditMode = true;
+            } else gvEmp.DataBind();
+        }
+
+        protected void dvEmp_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                string msg = e.Exception.Message;
+                Response.Write(msg);
+                e.ExceptionHandled = true;
+                e.KeepInInsertMode = true;
+            }
+            else gvEmp.DataBind();
+        }
     }
 }

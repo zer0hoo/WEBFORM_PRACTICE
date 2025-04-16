@@ -31,6 +31,27 @@
                     <asp:Parameter Name="EmpId" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+            <asp:SqlDataSource ID="sdsEmpFiltered" runat="server" ConnectionString="<%$ ConnectionStrings:testConnectionString %>" DeleteCommand="DELETE FROM [Emp] WHERE [EmpId] = @EmpId" InsertCommand="INSERT INTO [Emp] ([EmpId], [EmpName], [EmpSalary], [IsActive]) VALUES (@EmpId, @EmpName, @EmpSalary, @IsActive)" SelectCommand="SELECT [EmpId], [EmpName], [EmpSalary], [IsActive] FROM [Emp] WHERE ([EmpId] = @EmpId)" UpdateCommand="UPDATE [Emp] SET [EmpName] = @EmpName, [EmpSalary] = @EmpSalary, [IsActive] = @IsActive WHERE [EmpId] = @EmpId">
+                <DeleteParameters>
+                    <asp:Parameter Name="EmpId" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="EmpId" Type="Int32" />
+                    <asp:Parameter Name="EmpName" Type="String" />
+                    <asp:Parameter Name="EmpSalary" Type="Decimal" />
+                    <asp:Parameter Name="IsActive" Type="Boolean" />
+                </InsertParameters>
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="gvEmp" DefaultValue="-1" Name="EmpId" PropertyName="SelectedValue" Type="Int32" />
+                </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="EmpName" Type="String" />
+                    <asp:Parameter Name="EmpSalary" Type="Decimal" />
+                    <asp:Parameter Name="IsActive" Type="Boolean" />
+                    <asp:Parameter Name="EmpId" Type="Int32" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+            <br />
             <asp:GridView ID="gvEmp" runat="server" DataKeyNames="EmpId" DataSourceID="sdsEmp" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="True" OnSelectedIndexChanged="gvEmp_SelectedIndexChanged" OnRowCommand="gvEmp_RowCommand">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
@@ -55,6 +76,24 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+            <br />
+            <asp:DetailsView ID="dvEmp" runat="server" CellPadding="4" DataSourceID="sdsEmpFiltered" ForeColor="#333333" GridLines="None" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="EmpId" OnItemUpdated="dvEmp_ItemUpdated" OnModeChanged="dvEmp_ModeChanged" >
+                <AlternatingRowStyle BackColor="White" />
+                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                <EditRowStyle BackColor="#2461BF" />
+                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                <Fields>
+                    <asp:BoundField DataField="EmpId" HeaderText="EmpId" ReadOnly="True" SortExpression="EmpId" />
+                    <asp:BoundField DataField="EmpName" HeaderText="EmpName" SortExpression="EmpName" />
+                    <asp:BoundField DataField="EmpSalary" HeaderText="EmpSalary" SortExpression="EmpSalary" />
+                    <asp:CheckBoxField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+                </Fields>
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+            </asp:DetailsView>
         </div>
     </form>
 </body>
