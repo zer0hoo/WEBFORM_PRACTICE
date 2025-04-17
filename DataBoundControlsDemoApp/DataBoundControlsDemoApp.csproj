@@ -76,6 +76,7 @@
     <Content Include="EmpImages\5.jpeg" />
     <Content Include="EmployeeWithDepartmentDetails.aspx" />
     <Content Include="GridViewWithoutSqlDataSource.aspx" />
+    <Content Include="ListViewDemo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="GridViewWithoutSqlDataSource.aspx.designer.cs">
       <DependentUpon>GridViewWithoutSqlDataSource.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewDemo.aspx.cs">
+      <DependentUpon>ListViewDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListViewDemo.aspx.designer.cs">
+      <DependentUpon>ListViewDemo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

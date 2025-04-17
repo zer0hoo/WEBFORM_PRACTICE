@@ -54,7 +54,7 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
             <br />
-            <asp:GridView ID="gvEmp" runat="server" DataKeyNames="EmpId" DataSourceID="sdsEmp" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="True" OnSelectedIndexChanged="gvEmp_SelectedIndexChanged" OnRowCommand="gvEmp_RowCommand" OnRowUpdating="gvEmp_RowUpdating">
+            <asp:GridView ID="gvEmp" runat="server" DataKeyNames="EmpId" DataSourceID="sdsEmp" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowSorting="True" OnSelectedIndexChanged="gvEmp_SelectedIndexChanged" OnRowCommand="gvEmp_RowCommand" OnRowUpdating="gvEmp_RowUpdating" OnRowDataBound="gvEmp_RowDataBound">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="EmpId" HeaderText="emp Id" ReadOnly="true" SortExpression="EmpId" /> <%-- label로 랜더링 됨 --%>
