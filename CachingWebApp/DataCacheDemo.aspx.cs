@@ -14,6 +14,7 @@ namespace CachingWebApp
         {
             Response.Cache.SetCacheability(HttpCacheability.Server);
             Response.Cache.SetMaxAge(new TimeSpan(0, 0, 30));
+
             Response.Write(DateTime.Now.ToLongTimeString() + "<br />");
             //DateTime dt;
             string content;
