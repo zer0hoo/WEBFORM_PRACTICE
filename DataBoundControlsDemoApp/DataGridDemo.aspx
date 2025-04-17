@@ -56,14 +56,25 @@
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="EmpId" HeaderText="emp Id" ReadOnly="true" SortExpression="EmpId" /> <%-- label로 랜더링 됨 --%>
-                    <asp:BoundField DataField="EmpName" HeaderText="emp name" ReadOnly="true" SortExpression="EmpName" />
+                    <asp:TemplateField HeaderText="emp name" SortExpression="EmpName">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Bind("EmpName") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvEmpName" ControlToValidate="txtEmpName" runat="server"
+                                ErrorMessage="Plz enter name" Text="Required" Display="Dynamic" ></asp:RequiredFieldValidator>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("EmpName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="EmpSalary" HeaderText="emp salary" ReadOnly="true" SortExpression="EmpSalary" />
                     <asp:CheckBoxField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
                     <asp:CommandField ShowSelectButton="true" ShowDeleteButton="True" ShowEditButton="True" ButtonType="Link" />
                     <asp:ButtonField ButtonType="Link" Text="Email" CommandName="email" />
                     <asp:ButtonField ButtonType="Link" Text="SMS" CommandName="sms" />
                     <asp:HyperLinkField DataNavigateUrlFields="EmpId,EmpName" Target="_blank" DataNavigateUrlFormatstring="~/EmpDetails.aspx?EmpId={0}&Empname={1}" Text="Details" />
-                    <asp:ImageField DataImageUrlField="EmpId" DataImageUrlFormatString="~/EmpImages/{0}.jpeg" ControlStyle-Width="50"></asp:ImageField>
+                    <asp:ImageField DataImageUrlField="EmpId" DataImageUrlFormatString="~/EmpImages/{0}.jpeg" ControlStyle-Width="50">
+<ControlStyle Width="50px"></ControlStyle>
+                    </asp:ImageField>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -77,7 +88,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
             <br />
-            <asp:DetailsView ID="dvEmp" runat="server" CellPadding="4" DataSourceID="sdsEmpFiltered" ForeColor="#333333" GridLines="None" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="EmpId" OnItemUpdated="dvEmp_ItemUpdated" OnModeChanged="dvEmp_ModeChanged" >
+            <asp:DetailsView ID="dvEmp" runat="server" CellPadding="4" DataSourceID="sdsEmpFiltered" ForeColor="#333333" GridLines="None" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="EmpId" OnItemInserted="dvEmp_ItemInserted" OnItemUpdated="dvEmp_ItemUpdated" OnModeChanged="dvEmp_ModeChanged" >
                 <AlternatingRowStyle BackColor="White" />
                 <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
                 <EditRowStyle BackColor="#2461BF" />
@@ -88,6 +99,12 @@
                     <asp:BoundField DataField="EmpSalary" HeaderText="EmpSalary" SortExpression="EmpSalary" />
                     <asp:CheckBoxField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" Text="Delete" OnClientClick="return confirm('Are you sure?')" CommandName="delete" ></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Fields>
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
