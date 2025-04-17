@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CachingWebApp.Default" %>
 
-<%-- <%@ OutputCache Duration="10" VaryByParam="none" VaryByCustom="Browser" VaryByHeader="referer" %> --%>
+<%@ Register src="DemoUserControl.ascx" tagname="DemoUserControl" tagprefix="uc1" %>
+
+<%@ OutputCache Duration="10" VaryByParam="none"VaryByCustom="Browser" VaryByHeader="referer" Location="Client" %>
 
 <%--<%@ OutputCache CacheProfile="DemoProfile" %>--%>
 
@@ -21,6 +23,11 @@
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
             <%--Referer: <%= Request.UrlReferrer.ToString() %>--%>
+            <br />
+            <br />
+            <uc1:DemoUserControl ID="DemoUserControl1" runat="server" />
+            <br />
+            <asp:Substitution ID="Substitution1" MethodName="GetServerTime" runat="server" />
         </div>
     </form>
 </body>
