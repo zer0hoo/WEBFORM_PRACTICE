@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title></title> 
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnableHistory="True" EnableSecureHistoryState="False" OnAsyncPostBackError="ScriptManager1_AsyncPostBackError" OnNavigate="ScriptManager1_Navigate"></asp:ScriptManager>
             <br />
             <asp:UpdateProgress ID="UpdateProgress1" runat="server">
                 <ProgressTemplate>
@@ -58,6 +58,18 @@
             <asp:TextBox ID="txt3" runat="server"></asp:TextBox>
             <br />
             <br />
+            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
+                    <asp:Label ID="lblServerTime" runat="server" Text="lblServerTime"></asp:Label>
+                    <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick" Enabled="False">
+                    </asp:Timer>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                <ContentTemplate>
+                    <asp:Button ID="btnShowServerTime" runat="server" OnClick="btnShowServerTime_Click" Text="Show Server Time" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
     </form>
 </body>
